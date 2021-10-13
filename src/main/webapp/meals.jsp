@@ -12,6 +12,8 @@
     <title>Meals</title>
 </head>
 <body>
+<h3><a href="index.html">Home</a></h3>
+<hr>
 <div align="center">
     <table border="1" cellpadding="5">
         <caption><h2>List of Meals</h2></caption>
@@ -23,9 +25,9 @@
         <jsp:useBean id="listMeals" scope="request" type="java.util.List"/>
         <c:forEach var="meals" items="${listMeals}">
             <tr>
-                <td><c:out value="${meals.getDate()} ${meals.getTime()}" /></td>
-                <td><c:out value="${meals.getDescription()}"/></td>
-                <td><c:out value="${meals.getCalories()}"/></td>
+                <td ${(meals.excess) == true ? "style='color:red'" : "style='color:green'"}><c:out value="${meals.dateTime.toLocalDate()} ${meals.dateTime.toLocalTime()}" /></td>
+                <td ${(meals.excess) == true ? "style='color:red'" : "style='color:green'"}><c:out value="${meals.description}"/></td>
+                <td ${(meals.excess) == true ? "style='color:red'" : "style='color:green'"}><c:out value="${meals.calories}"/></td>
             </tr>
         </c:forEach>
     </table>
