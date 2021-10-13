@@ -23,7 +23,7 @@
         <jsp:useBean id="listMeals" scope="request" type="java.util.List"/>
         <c:forEach var="meals" items="${listMeals}">
             <tr>
-                <td><c:out value="${meals.getDate()}"/></td>
+                <td><c:out value="${meals.getDate()} ${meals.getTime()}" /></td>
                 <td><c:out value="${meals.getDescription()}"/></td>
                 <td><c:out value="${meals.getCalories()}"/></td>
             </tr>
