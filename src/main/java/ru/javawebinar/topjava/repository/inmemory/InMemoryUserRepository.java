@@ -25,16 +25,16 @@ public class InMemoryUserRepository implements UserRepository {
     @Override
     public boolean delete(int id) {
         log.info("delete {}", id);
-        return true;
+        return repository.remove(id) != null;
     }
 
     @Override
     public User save(User user) {
-        log.info("save {}", user);
         if (user.isNew())
             user.setId(counter.incrementAndGet());
         repository.put(user.getId(), user);
-        return user;
+        log.info("save {}", user);
+        return repository.getOrDefault(user.getId(), null);
     }
 
     @Override
