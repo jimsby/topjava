@@ -53,6 +53,13 @@ Java Enterprise Online Project
 Для переключения режима отображения изменений из вкладки Commit в Git: Local Changes нужно переключить `Settings/Preferences | Version Control | Commit | Use non-modal commit interface` или в контекстном меню вкладки `Commit`:
 
 ![image](https://user-images.githubusercontent.com/13649199/105491518-72d8f300-5cc7-11eb-8b79-c46382562deb.png)  ![image](https://user-images.githubusercontent.com/13649199/105488663-05c35e80-5cc3-11eb-962e-30f403d623e8.png)
+#### Начало выполнения [выпускного проекта](https://github.com/JavaOPs/topjava/blob/master/graduation.md)
+
+### 04.11: 5-е занятие
+- Обзор JDK 9/17. Миграция Topjava с 1.8 на 17
+- Разбор вопросов
+- Разбор домашнего задания HW4 + Optional
+- Транзакции
 
 ### Патч [prepare_to_HW0.patch](https://drive.google.com/file/d/1LNPpu9OkuCpfpD8ZJHO-o0vwu49p2i5M) (скачать и положить в каталог вашего проекта)
 
