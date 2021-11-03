@@ -1,19 +1,44 @@
 package ru.javawebinar.topjava.model;
 
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
+import org.hibernate.validator.constraints.Range;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+@NamedQueries({
+        @NamedQuery(name = Meal.ALL_BY_ID, query = "SELECT m FROM Meal m WHERE m.user.id=:id"),
+        @NamedQuery(name = Meal.DELETE, query = "DELETE FROM Meal m WHERE m.id=:id AND m.user.id=:userId"),
+        @NamedQuery(name = Meal.GET_BETWEEN_HALF_OPEN, query = "SELECT m FROM Meal m WHERE m.user.id=:id  AND m.dateTime >= :startTime AND m.dateTime < :endTime ORDER BY m.dateTime DESC")
+})
+@Entity
+@Table(name = "meals")
 public class Meal extends AbstractBaseEntity {
+
+    public static final String ALL_BY_ID = "Meal.GetAllById";
+    public static final String DELETE = "Meal.delete";
+    public static final String GET_BETWEEN_HALF_OPEN = "Meal.getBetweenHalfOpen";
+
+    @Column(name = "date_time", nullable = false)
+    @NotNull
     private LocalDateTime dateTime;
 
+    @Column(name = "description", nullable = false)
+    @NotBlank
+    @Size(max = 100)
     private String description;
 
+    @Column(name = "calories")
+    @Range(min = 10, max = 10000)
     private int calories;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
 
     public Meal() {
