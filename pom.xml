@@ -17,12 +17,12 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <spring.version>5.3.12</spring.version>
-        <spring-data-jpa.version>2.5.6</spring-data-jpa.version>
+        <spring-data-jpa.version>2.6.0</spring-data-jpa.version>
 
         <tomcat.version>9.0.54</tomcat.version>
 
         <!-- Logging -->
-        <logback.version>1.2.6</logback.version>
+        <logback.version>1.2.7</logback.version>
         <slf4j.version>1.7.32</slf4j.version>
 
         <!--DB-->
@@ -189,7 +189,7 @@
                 <dependency>
                     <groupId>org.hsqldb</groupId>
                     <artifactId>hsqldb</artifactId>
-                    <version>2.3.4</version>
+                    <version>2.6.1</version>
                 </dependency>
             </dependencies>
         </profile>
