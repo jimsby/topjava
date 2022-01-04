@@ -16,15 +16,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <spring.version>5.3.13</spring.version>
+        <spring.version>5.3.14</spring.version>
         <spring.security.version>5.6.0</spring.security.version>
         <spring-data-jpa.version>2.6.0</spring-data-jpa.version>
-        <jackson.version>2.13.0</jackson.version>
+        <jackson.version>2.13.1</jackson.version>
 
         <tomcat.version>9.0.54</tomcat.version>
 
         <!-- Logging -->
-        <logback.version>1.2.7</logback.version>
+        <logback.version>1.2.10</logback.version>
         <slf4j.version>1.7.32</slf4j.version>
 
         <!--DB-->
@@ -35,12 +35,12 @@
         <hamcrest.version>2.2</hamcrest.version>
 
         <!-- Hibernate -->
-        <hibernate.version>5.6.1.Final</hibernate.version>
+        <hibernate.version>5.6.3.Final</hibernate.version>
         <hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
         <javax-el.version>3.0.1-b12</javax-el.version>
 
         <!--Cache-->
-        <ehcache.version>3.9.7</ehcache.version>
+        <ehcache.version>3.9.9</ehcache.version>
 
         <!--webjars-->
         <webjars-bootstrap.version>4.6.1</webjars-bootstrap.version>
