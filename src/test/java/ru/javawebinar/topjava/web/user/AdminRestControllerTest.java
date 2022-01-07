@@ -7,8 +7,10 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.service.UserService;
+import ru.javawebinar.topjava.to.UserTo;
 import ru.javawebinar.topjava.util.exception.NotFoundException;
 import ru.javawebinar.topjava.web.AbstractControllerTest;
+import ru.javawebinar.topjava.web.json.JsonUtil;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -17,6 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static ru.javawebinar.topjava.TestUtil.userHttpBasic;
 import static ru.javawebinar.topjava.UserTestData.*;
+import static ru.javawebinar.topjava.web.user.ProfileRestController.REST_URL;
 
 class AdminRestControllerTest extends AbstractControllerTest {
 
@@ -74,6 +77,18 @@ class AdminRestControllerTest extends AbstractControllerTest {
     void getUnAuth() throws Exception {
         perform(MockMvcRequestBuilders.get(REST_URL))
                 .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    void unValid() throws Exception {
+        User updated = getUpdated();
+        updated.setEmail("");
+        perform(MockMvcRequestBuilders.put(REST_URL + USER_ID)
+                .contentType(MediaType.APPLICATION_JSON)
+                .with(userHttpBasic(admin))
+                .content(jsonWithPassword(updated, updated.getPassword())))
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
     }
 
     @Test
